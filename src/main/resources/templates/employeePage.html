@@ -1,0 +1,44 @@
+<!DOCTYPE HTML>
+<%@ page import="java.util.List" %>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Employee</title>
+
+    <style>
+        th, td {
+            padding: 5px;
+        }
+    </style>
+
+</head>
+
+<body>
+
+<th:block th:include="/_menu"></th:block>
+
+<h2>Accounts</h2>
+
+<table border="1">
+    <tr>
+        <th>ID</th>
+        <th>Full Name</th>
+        <th>Position</th>
+        <th>Salary</th>
+        <th>DateOfBirthday</th>
+        <th>DepId</th>
+
+    </tr>
+
+    <tr th:each="employeeInfo : ${employeeInfo}">
+        <td th:utext="${employeeInfo.id}"></td>
+        <td th:utext="${employee.full_name}"></td>
+        <td th:utext="${employee.dateOfBirthday}"></td>
+        <td th:utext="${employee.position}"></td>
+        <td th:utext="${employee.salary}"></td>
+        <td th:utext="${employee.depId}"></td>
+    </tr>
+
+</table>
+</body>
+</html>
