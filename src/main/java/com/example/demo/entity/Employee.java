@@ -15,10 +15,10 @@ public class Employee {
     @Column(name = "Full_name", nullable = false)
     private String Full_name;
 
-    @Column(name = "position", nullable = false)
+    @Column(name = "Position", nullable = false)
     private String position;
 
-    @Column(name = "salary", nullable = false)
+    @Column(name = "Salary", nullable = false)
     private int salary;
 
     @Column(name = "DateOfBirthday", nullable = false)
