@@ -3,7 +3,7 @@ package com.example.demo.model;
 import java.util.Date;
 
 public class EmployeeInfo{
-    private Long id;
+    private int id;
     private String Full_name;
     private Date DateOfBirthday;
     private int depId;
@@ -14,7 +14,7 @@ public class EmployeeInfo{
 
     }
 
-    public EmployeeInfo(Long id, String full_name, Date dateOfBirthday, int depId, String position, int salary) {
+    public EmployeeInfo(int id, String full_name, Date dateOfBirthday, int depId, String position, int salary) {
         this.id = id;
         this.Full_name = full_name;
         this.DateOfBirthday = dateOfBirthday;
@@ -23,11 +23,11 @@ public class EmployeeInfo{
         this.salary = salary;
     }
 
-    public Long getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(int id) {
         this.id = id;
     }
 

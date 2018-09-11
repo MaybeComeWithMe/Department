@@ -1,6 +1,5 @@
 package com.example.demo.controller;
 
-
 import com.example.demo.dao.EmployeeDAO;
 import com.example.demo.model.EmployeeInfo;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,12 +16,12 @@ public class MainController {
     @Autowired
     private EmployeeDAO employeeDAO;
 
-    @RequestMapping(value = "/", method = RequestMethod.GET)
+    @RequestMapping(value = "/",method = RequestMethod.GET)
     public String showEmployees(Model model){
         List<EmployeeInfo> list = employeeDAO.listEmployeeInfo();
 
-        model.addAttribute("employeeInfo",list);
+        model.addAttribute("employeeInfos",list);
 
-        return "employeePage";
+        return "employeesPage";
     }
 }

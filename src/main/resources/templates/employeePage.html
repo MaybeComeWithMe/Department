@@ -1,5 +1,5 @@
 <!DOCTYPE HTML>
-<%@ page import="java.util.List" %>
+
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
@@ -15,9 +15,9 @@
 
 <body>
 
-<th:block th:include="/_menu"></th:block>
+<th:block th:include="/_menu" th/>
 
-<h2>Accounts</h2>
+<h2>Employees</h2>
 
 <table border="1">
     <tr>
@@ -27,16 +27,15 @@
         <th>Salary</th>
         <th>DateOfBirthday</th>
         <th>DepId</th>
-
     </tr>
 
-    <tr th:each="employeeInfo : ${employeeInfo}">
+    <tr th:each="employeeInfo : ${employeeInfos}">
         <td th:utext="${employeeInfo.id}">..</td>
-        <td th:utext="${employee.full_name}">..</td>
-        <td th:utext="${employee.dateOfBirthday}">..</td>
-        <td th:utext="${employee.position}">..</td>
-        <td th:utext="${employee.salary}">..</td>
-        <td th:utext="${employee.depId}">..</td>
+        <td th:utext="${employeeInfo.full_name}">..</td>
+        <td th:utext="${employeeInfo.dateOfBirthday}">..</td>
+        <td th:utext="${employeeInfo.position}">..</td>
+        <td th:utext="${employeeInfo.salary}">..</td>
+        <td th:utext="${employeeInfo.depId}">..</td>
     </tr>
 
 </table>

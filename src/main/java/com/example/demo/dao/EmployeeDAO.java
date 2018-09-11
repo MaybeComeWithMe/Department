@@ -7,12 +7,11 @@ import org.hibernate.SessionFactory;
 import org.hibernate.query.Query;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
-import org.springframework.transaction.annotation.Transactional;
+
 
 import java.util.List;
 
 @Repository
-@Transactional
 public class EmployeeDAO{
 
     @Autowired
@@ -27,8 +26,9 @@ public class EmployeeDAO{
     }
 
     public List<EmployeeInfo> listEmployeeInfo() {
-        String sql = "Select new " + EmployeeInfo.class.getName() + "(e.id,e.full_name,e.position,e.salary,e.dateOfBirthday,e.depId) "
-                + " from " + Employee.class.getName() + " e ";
+        String sql = "Select " + EmployeeInfo.class.getName() //
+                + "(e.id,e.full_name,e.position,e.salary,e.dateOfbirthday) " //
+                + " from " + Employee.class.getName();
         Session session = this.sessionFactory.getCurrentSession();
         Query<EmployeeInfo> query = session.createQuery(sql, EmployeeInfo.class);
         return query.getResultList();

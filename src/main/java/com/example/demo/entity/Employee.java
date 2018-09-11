@@ -10,7 +10,7 @@ public class Employee {
     @Id
     @GeneratedValue
     @Column(name = "Id", nullable = false)
-    private long id;
+    private int id;
 
     @Column(name = "Full_name", nullable = false)
     private String Full_name;
@@ -31,7 +31,7 @@ public class Employee {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(int id) {
         this.id = id;
     }
 
