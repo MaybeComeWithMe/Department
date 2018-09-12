@@ -3,18 +3,18 @@ package com.example.demo.model;
 import java.util.Date;
 
 public class EmployeeInfo{
-    private int id;
+    private Long id;
     private String Full_name;
     private Date DateOfBirthday;
     private int depId;
     private String position;
-    private int salary;
+    private double salary;
 
     public EmployeeInfo(){
 
     }
 
-    public EmployeeInfo(int id, String full_name, Date dateOfBirthday, int depId, String position, int salary) {
+    public EmployeeInfo(Long id, String full_name, Date dateOfBirthday, int depId, String position, double salary) {
         this.id = id;
         this.Full_name = full_name;
         this.DateOfBirthday = dateOfBirthday;
@@ -23,11 +23,11 @@ public class EmployeeInfo{
         this.salary = salary;
     }
 
-    public int getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -63,11 +63,11 @@ public class EmployeeInfo{
         this.position = position;
     }
 
-    public int getSalary() {
+    public double getSalary() {
         return salary;
     }
 
-    public void setSalary(int salary) {
+    public void setSalary(double salary) {
         this.salary = salary;
     }
 }

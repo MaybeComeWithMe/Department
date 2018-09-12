@@ -1,6 +1,8 @@
 package com.example.demo.controller;
 
 import com.example.demo.dao.EmployeeDAO;
+import com.example.demo.exception.SalaryTransactionException;
+import com.example.demo.form.SendMoneyForm;
 import com.example.demo.model.EmployeeInfo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -20,8 +22,33 @@ public class MainController {
     public String showEmployees(Model model){
         List<EmployeeInfo> list = employeeDAO.listEmployeeInfo();
 
-        model.addAttribute("employeeInfos",list);
+        model.addAttribute("accountInfos",list);
 
-        return "employeesPage";
+        return "accountsPage";
+    }
+    @RequestMapping(value = "/sendMoney", method = RequestMethod.GET)
+    public String viewSendMoneyPage(Model model) {
+
+        SendMoneyForm form = new SendMoneyForm(1L, 2L, 700d);
+
+        model.addAttribute("sendMoneyForm", form);
+
+        return "sendMoneyPage";
+    }
+
+    @RequestMapping(value = "/sendMoney", method = RequestMethod.POST)
+    public String processSendMoney(Model model, SendMoneyForm sendMoneyForm) {
+
+        System.out.println("Send Money::" + sendMoneyForm.getAmount());
+
+        try {
+            employeeDAO.sendMoney(sendMoneyForm.getFromAccountId(), //
+                    sendMoneyForm.getToAccountId(), //
+                    sendMoneyForm.getAmount());
+        } catch (SalaryTransactionException e) {
+            model.addAttribute("errorMessage", "Error: " + e.getMessage());
+            return "/sendMoneyPage";
+        }
+        return "redirect:/";
     }
 }

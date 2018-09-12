@@ -17,7 +17,7 @@
 
 <th:block th:include="/_menu" th/>
 
-<h2>Employees</h2>
+<h2>Accounts</h2>
 
 <table border="1">
     <tr>
@@ -29,13 +29,13 @@
         <th>DepId</th>
     </tr>
 
-    <tr th:each="employeeInfo : ${employeeInfos}">
-        <td th:utext="${employeeInfo.id}">..</td>
-        <td th:utext="${employeeInfo.full_name}">..</td>
-        <td th:utext="${employeeInfo.dateOfBirthday}">..</td>
-        <td th:utext="${employeeInfo.position}">..</td>
-        <td th:utext="${employeeInfo.salary}">..</td>
-        <td th:utext="${employeeInfo.depId}">..</td>
+    <tr th:each="accountInfo : ${accountInfos}">
+        <td th:utext="${accountInfo.id}">..</td>
+        <td th:utext="${accountInfo.full_name}">..</td>
+        <td th:utext="${accountInfo.dateOfBirthday}">..</td>
+        <td th:utext="${accountInfo.position}">..</td>
+        <td th:utext="${accountInfo.salary}">..</td>
+        <td th:utext="${accountInfo.depId}">..</td>
     </tr>
 
 </table>

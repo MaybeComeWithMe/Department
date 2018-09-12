@@ -10,7 +10,7 @@ public class Employee {
     @Id
     @GeneratedValue
     @Column(name = "Id", nullable = false)
-    private int id;
+    private Long id;
 
     @Column(name = "Full_name", nullable = false)
     private String Full_name;
@@ -19,7 +19,7 @@ public class Employee {
     private String position;
 
     @Column(name = "Salary", nullable = false)
-    private int salary;
+    private double salary;
 
     @Column(name = "DateOfBirthday", nullable = false)
     private Date DateofBirthday;
@@ -27,11 +27,11 @@ public class Employee {
     @Column(name = "depId", nullable = false)
     private int depId;
 
-    public long getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -51,11 +51,11 @@ public class Employee {
         this.position = position;
     }
 
-    public int getSalary() {
+    public double getSalary() {
         return salary;
     }
 
-    public void setSalary(int salary) {
+    public void setSalary(double salary) {
         this.salary = salary;
     }
 
