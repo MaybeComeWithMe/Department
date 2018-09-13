@@ -1,8 +1,10 @@
 package com.example.demo.controller;
 
+import com.example.demo.dao.DepartmentsDAO;
 import com.example.demo.dao.EmployeeDAO;
 import com.example.demo.exception.SalaryTransactionException;
 import com.example.demo.form.SendMoneyForm;
+import com.example.demo.model.DepartmentsInfo;
 import com.example.demo.model.EmployeeInfo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -18,7 +20,20 @@ public class MainController {
     @Autowired
     private EmployeeDAO employeeDAO;
 
+    @Autowired
+    DepartmentsDAO departmentsDAO;
+
     @RequestMapping(value = "/",method = RequestMethod.GET)
+    public String showDepartments(Model model){
+        List<DepartmentsInfo> list = departmentsDAO.listDepartmentsInfo();
+
+        model.addAttribute("departmentInfos", list);
+
+        return "departmentsPage";
+    }
+
+
+    @RequestMapping(value = "/employee",method = RequestMethod.GET)
     public String showEmployees(Model model){
         List<EmployeeInfo> list = employeeDAO.listEmployeeInfo();
 
@@ -26,6 +41,7 @@ public class MainController {
 
         return "accountsPage";
     }
+
     @RequestMapping(value = "/sendMoney", method = RequestMethod.GET)
     public String viewSendMoneyPage(Model model) {
 

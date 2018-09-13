@@ -1,0 +1,35 @@
+<!DOCTYPE HTML>
+
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Employee</title>
+
+    <style>
+        th, td {
+            padding: 5px;
+        }
+    </style>
+
+</head>
+
+<body>
+
+<th:block th:include="/_menu" th/>
+
+<h2>Department</h2>
+
+<table border="1">
+    <tr>
+        <th>ID</th>
+        <th>Name</th>
+    </tr>
+
+    <tr th:each="departmentInfo : ${departmentInfos}">
+        <td th:utext="${departmentInfo.id}">..</td>
+        <td th:utext="${departmentInfo.name}">..</td>
+    </tr>
+
+</table>
+</body>
+</html>

@@ -29,9 +29,9 @@ public class EmployeeDAO{
     }
 
     public List<EmployeeInfo> listEmployeeInfo() {
-        String sql = "Select new " + EmployeeInfo.class.getName() //
-                + "(e.id,e.full_name,e.position,e.salary,e.dateOfBirthday,e.depId)"
-                + " from " + Employee.class.getName();
+        String sql = "Select new " + EmployeeInfo.class.getName()
+                + "(e.id,e.fullName,e.position,e.salary,e.dateOfBirthday,e.depId)"
+                + " from " + Employee.class.getName() + " e ";
         Session session = this.sessionFactory.getCurrentSession();
         Query<EmployeeInfo> query = session.createQuery(sql, EmployeeInfo.class);
         return query.getResultList();

@@ -13,7 +13,7 @@ public class Employee {
     private Long id;
 
     @Column(name = "Full_name", nullable = false)
-    private String Full_name;
+    private String fullName;
 
     @Column(name = "Position", nullable = false)
     private String position;
@@ -22,7 +22,7 @@ public class Employee {
     private double salary;
 
     @Column(name = "DateOfBirthday", nullable = false)
-    private Date DateofBirthday;
+    private Date dateOfBirthday;
 
     @Column(name = "depId", nullable = false)
     private int depId;
@@ -35,12 +35,12 @@ public class Employee {
         this.id = id;
     }
 
-    public String getFull_name() {
-        return Full_name;
+    public String getFullName() {
+        return fullName;
     }
 
-    public void setFull_name(String full_name) {
-        Full_name = full_name;
+    public void setFullName(String fullName) {
+        this.fullName = fullName;
     }
 
     public String getPosition() {
@@ -59,12 +59,12 @@ public class Employee {
         this.salary = salary;
     }
 
-    public Date getDateofBirthday() {
-        return DateofBirthday;
+    public Date getDateOfBirthday() {
+        return dateOfBirthday;
     }
 
-    public void setDateofBirthday(Date dateofBirthday) {
-        DateofBirthday = dateofBirthday;
+    public void setDateOfBirthday(Date dateOfBirthday) {
+        this.dateOfBirthday = dateOfBirthday;
     }
 
     public int getDepId() {

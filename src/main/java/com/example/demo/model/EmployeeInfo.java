@@ -2,25 +2,23 @@ package com.example.demo.model;
 
 import java.util.Date;
 
-public class EmployeeInfo{
+public class EmployeeInfo {
     private Long id;
-    private String Full_name;
-    private Date DateOfBirthday;
+    private String fullName;
+    private Date dateOfBirthday;
     private int depId;
     private String position;
     private double salary;
 
-    public EmployeeInfo(){
-
+    public EmployeeInfo() {
     }
 
-    public EmployeeInfo(Long id, String full_name, Date dateOfBirthday, int depId, String position, double salary) {
-        this.id = id;
-        this.Full_name = full_name;
-        this.DateOfBirthday = dateOfBirthday;
-        this.depId = depId;
-        this.position = position;
-        this.salary = salary;
+    public String getFullName() {
+        return fullName;
+    }
+
+    public void setFullName(String fullName) {
+        this.fullName = fullName;
     }
 
     public Long getId() {
@@ -31,20 +29,12 @@ public class EmployeeInfo{
         this.id = id;
     }
 
-    public String getFull_name() {
-        return Full_name;
-    }
-
-    public void setFull_name(String full_name) {
-        this.Full_name = full_name;
-    }
-
     public Date getDateOfBirthday() {
-        return DateOfBirthday;
+        return dateOfBirthday;
     }
 
     public void setDateOfBirthday(Date dateOfBirthday) {
-        this.DateOfBirthday = dateOfBirthday;
+        this.dateOfBirthday = dateOfBirthday;
     }
 
     public int getDepId() {
@@ -69,5 +59,15 @@ public class EmployeeInfo{
 
     public void setSalary(double salary) {
         this.salary = salary;
+    }
+
+    public EmployeeInfo(Long id, String fullName, String position, double salary, Date dateOfBirthday, int depId) {
+        this.id = id;
+        this.fullName = fullName;
+        this.position = position;
+        this.salary = salary;
+        this.dateOfBirthday = dateOfBirthday;
+        this.depId = depId;
+
     }
 }
