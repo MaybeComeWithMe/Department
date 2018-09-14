@@ -2,21 +2,14 @@ package com.example.demo.entity;
 
 import javax.persistence.*;
 
-
 @Entity
-@Table(name = "Departments")
-public class Departments {
+@Table(name = "DepAndEmps")
+public class DepAndEmps {
 
     @Id
     @GeneratedValue
     @Column(name = "Id", nullable = false)
     private int id;
-
-    @Column(name = "Name", nullable = false)
-    private String name;
-
-    @Column(name = "Full_name", nullable = false)
-    private String fullName;
 
     @Column(name = "idEmp", nullable = false)
     private Long idEmployee;
@@ -30,22 +23,6 @@ public class Departments {
 
     public void setId(int id) {
         this.id = id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getFullName() {
-        return fullName;
-    }
-
-    public void setFullName(String fullName) {
-        this.fullName = fullName;
     }
 
     public Long getIdEmployee() {

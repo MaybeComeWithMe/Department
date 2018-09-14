@@ -1,7 +1,9 @@
 package com.example.demo.dao;
 
 
+import com.example.demo.entity.DepAndEmps;
 import com.example.demo.entity.Departments;
+import com.example.demo.entity.Employee;
 import com.example.demo.model.DepartmentsInfo;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -30,8 +32,10 @@ public class DepartmentsDAO {
     @Transactional
     public List<DepartmentsInfo> listDepartmentsInfo() {
         String sql = "Select new " + DepartmentsInfo.class.getName()
-                + "(e.id,e.name)"
-                + " from " + Departments.class.getName() + " e ";
+                + "(d.id,d.name,e.fullName,de.idEmployee,de.departmentId)"
+                + " from " + Departments.class.getName() + " d, " + Employee.class.getName() + " e, "
+                + DepAndEmps.class.getName() + " de " + " where d.id = de.departmentId"
+                + " and e.id = de.idEmployee";
         Session session = this.sessionFactory.getCurrentSession();
         Query<DepartmentsInfo> query = session.createQuery(sql, DepartmentsInfo.class);
         return query.getResultList();

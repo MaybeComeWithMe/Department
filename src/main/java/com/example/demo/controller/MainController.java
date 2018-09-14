@@ -11,6 +11,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.List;
 
@@ -21,7 +22,7 @@ public class MainController {
     private EmployeeDAO employeeDAO;
 
     @Autowired
-    DepartmentsDAO departmentsDAO;
+    private DepartmentsDAO departmentsDAO;
 
     @RequestMapping(value = "/",method = RequestMethod.GET)
     public String showDepartments(Model model){
@@ -32,14 +33,23 @@ public class MainController {
         return "departmentsPage";
     }
 
+    @RequestMapping(value = "/department",method = RequestMethod.GET)
+    public String showDepartments(Model model,@RequestParam int depId){
+        List<EmployeeInfo> list = employeeDAO.listEmployeeByDepId(depId);
+
+        model.addAttribute("employees", list);
+
+        return "employeesPage";
+    }
+
 
     @RequestMapping(value = "/employee",method = RequestMethod.GET)
     public String showEmployees(Model model){
         List<EmployeeInfo> list = employeeDAO.listEmployeeInfo();
 
-        model.addAttribute("accountInfos",list);
+        model.addAttribute("employees",list);
 
-        return "accountsPage";
+        return "employeesPage";
     }
 
     @RequestMapping(value = "/sendMoney", method = RequestMethod.GET)

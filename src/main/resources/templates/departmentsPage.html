@@ -6,6 +6,9 @@
     <title>Employee</title>
 
     <style>
+        body{
+            background-image: radial-gradient(red, yellow, green);
+        }
         th, td {
             padding: 5px;
         }
@@ -18,18 +21,23 @@
 <th:block th:include="/_menu" th/>
 
 <h2>Department</h2>
+    <table border="1">
+        <tr>
+            <td>Name</td>
+            <td>Manager</td>
+        </tr>
 
-<table border="1">
-    <tr>
-        <th>ID</th>
-        <th>Name</th>
-    </tr>
+        <tr th:each="departmentInfo : ${departmentInfos}">
+            <td>
+                <a th:href="@{'/department?depId=' + ${departmentInfo.id}}">
+                    <div th:text="${departmentInfo.name}"/>
+                </a>
+            </td>
+            <td>
+                <div th:text="${departmentInfo.fullName}"/>
+            </td>
+        </tr>
 
-    <tr th:each="departmentInfo : ${departmentInfos}">
-        <td th:utext="${departmentInfo.id}">..</td>
-        <td th:utext="${departmentInfo.name}">..</td>
-    </tr>
-
-</table>
+    </table>
 </body>
 </html>

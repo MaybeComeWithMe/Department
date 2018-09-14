@@ -3,9 +3,12 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Employee</title>
+    <title>Employees</title>
 
     <style>
+        body{
+            background-image: radial-gradient(circle, red, yellow, green);
+        }
         th, td {
             padding: 5px;
         }
@@ -17,25 +20,23 @@
 
 <th:block th:include="/_menu" th/>
 
-<h2>Accounts</h2>
+<h2>Employees</h2>
 
 <table border="1">
     <tr>
-        <th>ID</th>
         <th>Full Name</th>
+        <th>DateOfBirthday</th>
         <th>Position</th>
         <th>Salary</th>
-        <th>DateOfBirthday</th>
-        <th>DepId</th>
+        <th>DepName</th>
     </tr>
 
-    <tr th:each="accountInfo : ${accountInfos}">
-        <td th:utext="${accountInfo.id}">..</td>
+    <tr th:each="accountInfo : ${employees}">
         <td th:utext="${accountInfo.fullName}">..</td>
         <td th:utext="${accountInfo.dateOfBirthday}">..</td>
         <td th:utext="${accountInfo.position}">..</td>
         <td th:utext="${accountInfo.salary}">..</td>
-        <td th:utext="${accountInfo.depId}">..</td>
+        <td th:utext="${accountInfo.depName}">..</td>
     </tr>
 
 </table>

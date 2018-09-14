@@ -6,9 +6,19 @@ public class EmployeeInfo {
     private Long id;
     private String fullName;
     private Date dateOfBirthday;
-    private int depId;
     private String position;
+    private String depName;
     private double salary;
+    private int depId;
+
+
+    public int getDepId() {
+        return depId;
+    }
+
+    public void setDepId(int depId) {
+        this.depId = depId;
+    }
 
     public EmployeeInfo() {
     }
@@ -37,14 +47,6 @@ public class EmployeeInfo {
         this.dateOfBirthday = dateOfBirthday;
     }
 
-    public int getDepId() {
-        return depId;
-    }
-
-    public void setDepId(int depId) {
-        this.depId = depId;
-    }
-
     public String getPosition() {
         return position;
     }
@@ -61,13 +63,30 @@ public class EmployeeInfo {
         this.salary = salary;
     }
 
-    public EmployeeInfo(Long id, String fullName, String position, double salary, Date dateOfBirthday, int depId) {
+    public String getDepName() {
+        return depName;
+    }
+
+    public void setDepName(String depName) {
+        this.depName = depName;
+    }
+
+    public EmployeeInfo(Long id, String fullName,  String position, double salary, Date dateOfBirthday,int depId,String depName) {
         this.id = id;
         this.fullName = fullName;
+        this.dateOfBirthday = dateOfBirthday;
+        this.position = position;
+        this.depName = depName;
+        this.depId = depId;
+        this.salary = salary;
+    }
+
+    public EmployeeInfo(Long id, String fullName, Date dateOfBirthday, String position, double salary, String depName) {
+        this.id = id;
+        this.fullName = fullName;
+        this.dateOfBirthday = dateOfBirthday;
         this.position = position;
         this.salary = salary;
-        this.dateOfBirthday = dateOfBirthday;
-        this.depId = depId;
-
+        this.depName = depName;
     }
 }

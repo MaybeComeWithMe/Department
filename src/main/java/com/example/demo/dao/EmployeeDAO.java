@@ -1,5 +1,6 @@
 package com.example.demo.dao;
 
+import com.example.demo.entity.Departments;
 import com.example.demo.entity.Employee;
 import com.example.demo.exception.SalaryTransactionException;
 import com.example.demo.model.EmployeeInfo;
@@ -30,8 +31,19 @@ public class EmployeeDAO{
 
     public List<EmployeeInfo> listEmployeeInfo() {
         String sql = "Select new " + EmployeeInfo.class.getName()
-                + "(e.id,e.fullName,e.position,e.salary,e.dateOfBirthday,e.depId)"
-                + " from " + Employee.class.getName() + " e ";
+                + "(e.id, e.fullName, e.position, e.salary,e.dateOfBirthday,e.depId,d.name)"
+                +" from " + Employee.class.getName() + " e, " + Departments.class.getName() + " d "
+                +" where e.depId = d.id ";
+        Session session = this.sessionFactory.getCurrentSession();
+        Query<EmployeeInfo> query = session.createQuery(sql, EmployeeInfo.class);
+        return query.getResultList();
+    }
+
+    public List<EmployeeInfo> listEmployeeByDepId(int id){
+        String sql = "Select new " + EmployeeInfo.class.getName()
+                + "(e.id, e.fullName, e.dateOfBirthday, e.position, e.salary, d.name)"
+                +" from " + Employee.class.getName() + " e," + Departments.class.getName() + " d "
+                + "where e.depId = d.id and e.depId = " + id;
         Session session = this.sessionFactory.getCurrentSession();
         Query<EmployeeInfo> query = session.createQuery(sql, EmployeeInfo.class);
         return query.getResultList();
